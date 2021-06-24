@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h2>Artist App</h2>
+</div>
+
+<app-artist-search
+  (artist)="setArtist($event)"
+  (clearSearch)="clearSearch()"
+></app-artist-search>
+
+<ng-container *ngIf="isArtist">
+  <app-artist [artist]="artist"></app-artist>
+</ng-container>

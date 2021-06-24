@@ -1,0 +1,35 @@
+.event-notification {
+    font-size: medium;
+    font-weight: 500;
+    margin-top: 12px;
+}
+.single-cards{
+    .mat-card-header{
+        border-bottom: 1px solid #46383852 !important;
+        margin-bottom: 10px;
+    }
+    .mat-card-header .mat-card-title{
+        margin-left: -16px;
+    }
+    .mat-card-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .detail-item{
+        width: 50%;
+        margin-bottom: 5px;
+        h2{
+            font-size: 16px;
+            margin: 0;
+        }
+        h4{
+            margin: -8px 0 0px 0;
+            font-size: 13px;
+            color: #000000a1;
+        }
+    }
+}
+
+.mat-card-header-text{
+    margin: 0;
+}

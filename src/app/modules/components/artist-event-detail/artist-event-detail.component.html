@@ -1,0 +1,63 @@
+
+<div class="loading-indicator" *ngIf="artistsService.isLoading | async">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div (click)="backClickHandler()">
+  <button mat-icon-button>
+    <mat-icon>keyboard_arrow_left</mat-icon>Back to results
+  </button>
+</div>
+<ng-container *ngIf="isArtist">
+  <app-artist [artist]="artist"></app-artist>
+</ng-container>
+<ng-container *ngIf="events.length; else noEvent">
+  <div>
+    <p class="event-notification">{{ events.length }} upcoming events</p>
+  </div>
+</ng-container>
+
+<ng-template #noEvent>
+  <p class="event-notification">{{ noEventNotification }}</p>
+</ng-template>
+
+<div
+  class="cards-container"
+  fxLayout="row wrap"
+  fxLayout.lt-sm="column"
+  fxLayoutAlign="flex-start"
+>
+  <div
+    class="single-cards"
+    *ngFor="let event of events"
+    fxFlex.lg="32"
+    fxFlex.md="50"
+    fxFlex.sm="50"
+    fxFlex.xs="100"
+    fxLayout="row"
+    style="margin: 5px"
+  >
+    <mat-card class="example-card" style="width: 100%">
+      <mat-card-header>
+        <mat-card-title>Event Details</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="detail-item">
+          <h2>Country</h2>
+          <h4>{{ event.venue.country }}</h4>
+        </div>
+        <div class="detail-item">
+          <h2>City</h2>
+          <h4>{{ event.venue.city }}</h4>
+        </div>
+        <div class="detail-item">
+          <h2>Venue</h2>
+          <h4>{{ event.venue.name }}</h4>
+        </div>
+        <div class="detail-item">
+          <h2>Date</h2>
+          <h4>{{ event.datetime | CustomDatePipe }}</h4>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

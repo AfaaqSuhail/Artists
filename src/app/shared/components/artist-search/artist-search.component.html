@@ -1,0 +1,25 @@
+
+<div class="loading-indicator" *ngIf="artistsService.isLoading | async">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>
+<div class="artist-search">
+  <mat-form-field appearance="outline">
+    <mat-label class="some">Search Artists (Any name)</mat-label>
+    <input
+      matInput
+      #artistSearchInput
+      value="{{ searchQuery }}"
+      type="search"
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<ng-container *ngIf="$$artist.name">
+  <p></p>
+  <div>
+    <button mat-icon-button>
+      Result found for {{ searchQuery }}
+    </button>
+  </div>
+  <p></p>
+</ng-container>
