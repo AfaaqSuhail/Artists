@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artists.component.scss']
 })
 export class ArtistsComponent implements OnInit {
-
-  constructor() { }
+  artists: any;
+  constructor() { 
+    this.artists = [];
+  }
 
   ngOnInit(): void {
+  }
+
+  getArtists(artists: any) {
+    console.log('------------------------');
+    console.log('artists', artists);
+    console.log('------------------------');
+    this.artists = artists;
+  }
+  
+  clearSearch(isClearSearch: boolean) {
+    this.artists = [];
   }
 
 }

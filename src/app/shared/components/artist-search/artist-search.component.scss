@@ -1,0 +1,17 @@
+.artist-search {         
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end,
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-width: 1px !important;
+    color: #e0e0e0;
+}
