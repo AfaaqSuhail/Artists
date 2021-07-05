@@ -1,28 +1,22 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { IArtist } from 'src/app/shared/interfaces/artitst.interface';
+import { IEvent } from 'src/app/shared/interfaces/events.interface';
 
 @Component({
   selector: 'app-artists',
   templateUrl: './artists.component.html',
   styleUrls: ['./artists.component.scss']
 })
-export class ArtistsComponent implements OnInit {
-  artists: any;
-  constructor() { 
-    this.artists = [];
-  }
+export class ArtistsComponent {
+  artists!: IArtist[];
+  events!: IEvent[];
+  constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  getArtists(artists: any) {
-    console.log('------------------------');
-    console.log('artists', artists);
-    console.log('------------------------');
+  setArtists(artists: IArtist[]) {
     this.artists = artists;
   }
   
-  clearSearch(isClearSearch: boolean) {
+  clearSearch() {
     this.artists = [];
   }
 

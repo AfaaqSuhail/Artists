@@ -10,6 +10,9 @@ export class ArtistEventDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('------------------------');
+    console.log('Artist Event detail');
+    console.log('------------------------');
   }
 
 }

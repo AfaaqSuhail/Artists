@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IArtist } from 'src/app/shared/interfaces/artitst.interface';
 
 @Component({
   selector: 'app-artist',
@@ -6,13 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./artist.component.scss']
 })
 export class ArtistComponent implements OnInit {
-  @Input() artists : any = [];
-  constructor() { }
+  @Input()
+  artists!: IArtist[];
+  
+  constructor(private readonly router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('------------------------');
-    console.log('artists', this.artists);
-    console.log('------------------------');
+  
+  }
+
+  artistClickHandler(artist: IArtist) {
+    this.router.navigate(['/artist/event', `${artist.id}`], { relativeTo: this.route})
   }
 
 }
