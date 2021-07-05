@@ -2,3 +2,39 @@
     background-image: url('https://images.unsplash.com/photo-1459802071246-377c0346da93?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=352&q=80');
     background-size: cover;
 }
+.cards-container{
+
+}
+.single-cards .example-card{
+// background-color: red;
+}
+.single-cards{
+    .mat-card-header{
+        border-bottom: 1px solid #46383852 !important;
+        margin-bottom: 10px;
+    }
+    .mat-card-header .mat-card-title{
+        margin-left: -16px;
+    }
+    .mat-card-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .detail-item{
+        width: 50%;
+        margin-bottom: 5px;
+        h2{
+            font-size: 16px;
+            margin: 0;
+        }
+        h4{
+            margin: -8px 0 0px 0;
+            font-size: 13px;
+            color: #000000a1;
+        }
+    }
+}
+
+.mat-card-header-text{
+    margin: 0;
+}
