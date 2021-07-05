@@ -1,5 +1,4 @@
 import { Component, ViewChild, ElementRef, OnInit, Output, EventEmitter } from "@angular/core";
-import { of } from "rxjs";
 import {
   debounceTime,
   map,
@@ -7,7 +6,9 @@ import {
   filter
 } from "rxjs/operators";
 import { fromEvent } from 'rxjs';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpResponse } from "@angular/common/http";
+import { ArtistsService } from "../../services/artists.service";
+import { IArtist } from "../../interfaces/artitst.interface";
 
 
 @Component({
@@ -17,13 +18,13 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ArtistSearchComponent implements OnInit {
   @ViewChild('artistSearchInput', { static: true }) artistSearchInput: any;
-  @Output() artists = new EventEmitter();
+  @Output() artists: EventEmitter<IArtist[]> = new EventEmitter();
   @Output() clearSearch = new EventEmitter();
 
   search: string;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private readonly http: HttpClient, private readonly artistsService: ArtistsService) {
     this.search = '';
    }
 
@@ -45,23 +46,13 @@ export class ArtistSearchComponent implements OnInit {
       , distinctUntilChanged()
 
       // subscription for response
-    ).subscribe((text: string) => {
-      this.searchArtists(text).subscribe((res: any) => {
-        res = [{
-          "id": 510,
-          "name": "Maroon 5",
-          "url": "http://www.bandsintown.com/Maroon5?came_from=67",
-          "image_url": "https://s3.amazonaws.com/bit-photos/large/7481529.jpeg",
-          "thumb_url": "https://s3.amazonaws.com/bit-photos/thumb/7481529.jpeg",
-          "facebook_page_url": "https://www.facebook.com/maroon5",
-          "mbid": "0ab49580-c84f-44d4-875f-d83760ea2cfe",
-          "tracker_count": 0,
-          "upcoming_event_count": 0
-        }];
-        this.artists.emit(res);
+    ).subscribe((searchTerm: string) => {
+      this.searchArtists(searchTerm).subscribe((res: any) => {
+        const artists: IArtist[] = res.body;
+        this.artists.emit(artists);
         console.log('res', res);
       }, (err: any) => {
-        const res = [{
+        const res: IArtist[] = [{
           "id": 510,
           "name": "Maroon 5",
           "url": "http://www.bandsintown.com/Maroon5?came_from=67",
@@ -144,11 +135,11 @@ export class ArtistSearchComponent implements OnInit {
   }
 
   
-  searchArtists(term: string) {
-    if (!term) {
+  searchArtists(searchTerm: string) {
+    if (!searchTerm) {
       this.clearSearch.emit(true);
     }
-    return this.http.get(`https:/rest.bandsintown.com/artists/${term}?app_id='any'`);
+    return this.artistsService.getArtists(searchTerm);
   }
   
 }

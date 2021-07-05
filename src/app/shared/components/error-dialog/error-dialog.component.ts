@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HttpErrorInterface } from 'src/app/interfaces/http-error.interface';
+import { HttpErrorInterface } from 'src/app/shared/interfaces/http-error.interface';
 @Component({
   selector: 'app-error-dialog',
   templateUrl: './error-dialog.component.html',

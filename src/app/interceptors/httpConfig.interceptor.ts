@@ -9,7 +9,7 @@ import {
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { ErrorDialogService } from '../shared/components/services/error-dialog.service';
+import { ErrorDialogService } from '../shared/services/error-dialog.service';
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {

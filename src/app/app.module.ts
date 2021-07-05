@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArtistsModule } from './modules/artists/artists.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpConfigInterceptor } from './interceptors/httpConfig.interceptor';
-import { ErrorDialogService } from './shared/components/services/error-dialog.service';
+import { ErrorDialogService } from './shared/services/error-dialog.service';
 import { ErrorDialogComponent } from './shared/components/error-dialog/error-dialog.component';
 @NgModule({
   declarations: [

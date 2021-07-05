@@ -1,3 +1,12 @@
-    <app-artist-search (artists)="getArtists($event)" (clearSearch)="clearSearch($event)"></app-artist-search>
+<div class="page-header">
+    <button mat-icon-button color="white" >
+      <mat-icon>home</mat-icon>
+    </button>
+    <h2>Artist App</h2>
+    <button mat-icon-button color="white" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+    <app-artist-search (artists)="setArtists($event)" (clearSearch)="clearSearch()"></app-artist-search>
     <app-artist [artists]="artists"></app-artist>
     <app-artist-event-detail></app-artist-event-detail>

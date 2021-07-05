@@ -1,7 +1,8 @@
 <div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutAlign="flex-start">
     <div *ngFor="let artist of artists" fxFlex.lg="32"  fxFlex.md="50" fxFlex.sm="50" fxFlex.xs="100" fxLayout="row"
-        style="margin: 5px;">
+        style="margin: 5px;" (click)="artistClickHandler(artist)" >
         <!-- <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
+
             class="example-card">
             <mat-grid-list cols="2">
                 <div fxLayout="row">
