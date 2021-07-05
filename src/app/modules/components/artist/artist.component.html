@@ -1,7 +1,7 @@
-<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
-    <div *ngFor="let artist of artists" fxFlex="20" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="row"
-        style="padding: 5px;" (click)="artistClickHandler(artist)">
-        <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
+<div fxLayout="row wrap" fxLayout.lt-sm="column"  fxLayoutAlign="flex-start">
+    <div *ngFor="let artist of artists" fxFlex.lg="32"  fxFlex.md="50" fxFlex.sm="50" fxFlex.xs="100" fxLayout="row"
+        style="margin: 5px;">
+        <!-- <mat-card fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%"
             class="example-card">
             <mat-grid-list cols="2">
                 <div fxLayout="row">
@@ -12,6 +12,19 @@
                     </div>
                 </div>
             </mat-grid-list>
-        </mat-card>
+        </mat-card> -->
+
+        <mat-card class="example-card" style="width: 100%;">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{artist.name}}</mat-card-title>
+              <mat-card-subtitle>{{artist.facebook_page_url}}</mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-actions>
+              <button mat-button>Read More</button>
+            </mat-card-actions>
+          </mat-card>
+
     </div>
 </div>
