@@ -3,6 +3,25 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 mat-form-field:not(.mat-form-field-should-float) .mat-input-placeholder {
-    padding: 10px;
-    box-sizing: border-box;
+    // padding: 10px;
+    // box-sizing: border-box;
   }
+.main-container{
+    max-width: 1150px;
+    margin: 0 auto;
+}
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+button.transparent{
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 4px 20px;
+  height: 40px;
+}
